@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Expenses" icon-name="standard:display_text">
+        <template if:true={loading}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+        <lightning-button label="Refresh"
+                            title="Refresh" 
+                            onclick={refreshDataTable}
+                            variant="brand"
+                            class="slds-m-left_x-small" 
+                            slot="actions">
+        </lightning-button>
+        <div class="slds-m-around_medium">
+            <template if:true={expenses}>
+                <lightning-datatable
+                    key-field="id"
+                    data={expenses}
+                    columns={columns}
+                    show-row-number-column
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+        </div>
+    </lightning-card>      
+</template>

@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Create Expenses" icon-name="standard:record">
+        <template if:true={loading}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+        <div class="slds-m-around_medium">
+            <lightning-record-edit-form object-api-name="Expense__c" onsubmit={handleSubmit} onsuccess={handleExpenseCreated}>
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6">
+                        <lightning-input-field field-name="Category__c" class="slds-m-bottom_x-small"></lightning-input-field >
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6">
+                            <lightning-input-field field-name="Expense_Date__c" class="slds-m-bottom_x-small"></lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6">
+                        <lightning-input-field field-name="Amount__c" class="slds-m-bottom_x-small"></lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="2" large-device-size="2" padding="around-small">
+                        <lightning-input-field  data-field="weekly" 
+                                                field-name="Is_Weekly_Basis__c" 
+                                                value={isWeekly} 
+                                                onchange={handleWeeklyExpenseChange} 
+                                                class="slds-m-bottom_x-small">
+                        </lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="2" large-device-size="2" padding="around-small">
+                        <lightning-input-field  data-field="monthly" 
+                                                field-name="Is_Monthly_Basis__c" 
+                                                value={isMonthly} 
+                                                onchange={handleMonthlyExpenseChange} 
+                                                class="slds-m-bottom_x-small">
+                        </lightning-input-field>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-button type="submit" label="Register Expense" variant="brand"></lightning-button>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

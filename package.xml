@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExpenseApp</fullName>
+    <description>A small expense app where we can register the expenses through a form, and then being able to see each expense on a list and on a pie chart.</description>
+    <types>
+        <members>ExpenseController</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Expense_App</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Expense__c.Amount__c</members>
+        <members>Expense__c.Category__c</members>
+        <members>Expense__c.Expense_Date__c</members>
+        <members>Expense__c.Is_Monthly_Basis__c</members>
+        <members>Expense__c.Is_Weekly_Basis__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Expense__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Expenses</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Applaudo</members>
+        <name>Dashboard</name>
+    </types>
+    <types>
+        <members>Expense_App_UtilityBar</members>
+        <members>Expenses</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>Expense__c-Expense Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>expenseCreator</members>
+        <members>expenseList</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <version>50.0</version>
+</Package>
