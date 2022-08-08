@@ -24,7 +24,7 @@ export default class ExpenseCreator extends LightningElement {
      //This would be okay for a 'small' number of records, 7 and 30/31 in this case, 
      //but Apex would have better performance for large lists.
      createRecurrentExpenses(category, date, amount, isMonthly, isWeekly) {
-        this.stopLoading(2000);
+        this.loading=true;
         if(isMonthly){
             if(date.getUTCDate() > 15){
                 this.counter = (new Date(date.getFullYear(), date.getMonth() + 1, 0)).getDate();
@@ -39,6 +39,7 @@ export default class ExpenseCreator extends LightningElement {
         }else{
             this.counter = 7;
         }
+        this.stopLoading(2000);
         for(let i = 0;i < this.counter;i++){
             const fields = {};
             fields[CATEGORY_FIELD.fieldApiName] = category;
@@ -105,7 +106,6 @@ export default class ExpenseCreator extends LightningElement {
     handleSubmit(event){
         event.preventDefault();
         if(event.detail.fields.Amount__c){
-            this.loading=true;
             if(this.isWeekly){
                 this.createRecurrentExpenses(event.detail.fields.Category__c, new Date(event.detail.fields.Expense_Date__c), event.detail.fields.Amount__c, this.isMonthly, this.isWeekly)
             }else if(this.isMonthly){
